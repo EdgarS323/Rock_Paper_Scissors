@@ -9,14 +9,26 @@ let options = ['rock', 'paper', 'scissors'];
 // Get computers Choice from an array that includes rock, paper and scissors.
 
 const getComputerChoice = () => {
-  return options[Math.floor(Math.random() * 3)];
+  return options[Math.floor(Math.random() * options.length)];
 };
 
 let computerSelection = getComputerChoice();
 //  Prompting user to choose between options
 
-// let p1Choice = prompt('Choose either Rock Paper or Scissors');
-// p1Choice = p1Choice.toLowerCase();
+function getPlayerChoice() {
+  let validatedInput = false;
+  while (validatedInput == false) {
+    const choice = prompt('Rock Paper or Scissors');
+    if (choice === null) {
+      continue;
+    }
+    const choiceInLower = choice.toLowerCase();
+    if (options.includes(choiceInLower)) {
+      validatedInput = true;
+      return choiceInLower;
+    }
+  }
+}
 
 // Playing the game
 
@@ -41,11 +53,11 @@ function playRound(playerSelection, computerSelection) {
 // Play 5 rounds
 
 function game() {
+  console.log('Welcome');
   for (let i = 1; i <= 5; i++) {
-    let p1Choice = prompt('Chose either rock paper or scissors').toLowerCase();
+    let p1Choice = getPlayerChoice();
     let computerSelection = getComputerChoice();
     playRound(p1Choice, computerSelection);
   }
 }
-
 game();
