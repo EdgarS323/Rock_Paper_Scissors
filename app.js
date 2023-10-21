@@ -39,12 +39,14 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
     console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+    return 'Player Win';
   } else if (
     (computerSelection === 'rock' && playerSelection === 'scissors') ||
     (computerSelection === 'paper' && playerSelection === 'rock') ||
     (computerSelection === 'scissors' && playerSelection === 'paper')
   ) {
     console.log(`You lose ${computerSelection} beats ${playerSelection}`);
+    return 'Computer Win';
   } else {
     console.log('Draw');
   }
@@ -53,11 +55,26 @@ function playRound(playerSelection, computerSelection) {
 // Play 5 rounds
 
 function game() {
-  console.log('Welcome');
+  let playerScore = 0;
+  let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
     let p1Choice = getPlayerChoice();
     let computerSelection = getComputerChoice();
-    playRound(p1Choice, computerSelection);
+    let result = playRound(p1Choice, computerSelection);
+    if (result === 'Player Win') {
+      playerScore++;
+    } else if (result === 'Computer Win') {
+      computerScore++;
+    }
+  }
+  if (playerScore > computerScore) {
+    console.log(
+      `Congrats you win with a score of ${playerScore} - ${computerScore}`
+    );
+  } else {
+    console.log(
+      `Sorry you lose with a score of ${playerScore} to ${computerScore}`
+    );
   }
 }
 game();
