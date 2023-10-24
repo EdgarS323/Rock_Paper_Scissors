@@ -1,6 +1,5 @@
 // Initialize Variables
 
-let isGameOver = false;
 let round = 1;
 let player1Score = 0;
 let compScore = 0;
@@ -19,9 +18,9 @@ const roundDisplay = document.querySelector('#roundDisplay');
 
 // Add event listeners to each button
 
-rock.addEventListener('click', () => playRound('rock', computerSelection));
-paper.addEventListener('click', () => playRound('paper', computerSelection));
-scissors.addEventListener('click', () => playRound('scissors', computerSelection));
+rock.addEventListener('click', () => playRound('rock'));
+paper.addEventListener('click', () => playRound('paper'));
+scissors.addEventListener('click', () => playRound('scissors'));
 
 // Get computers Choice from options array
 
@@ -29,20 +28,15 @@ const getComputerChoice = () => {
   return options[Math.floor(Math.random() * options.length)];
 };
 
-let computerSelection = getComputerChoice();
+// Play round
 
-// Play 1 round
-
-function playRound(playerSelection, computerSelection) {
-  if (round == 5) {
-    if (player1Score > compScore) {
-      gameWinner.textContent = 'Congrats You win the series!!!';
-    } else if (compScore > player1Score) {
-      gameWinner.textContent = 'Sorry but you lose the series to the CPU!!!';
-    }
+function playRound(playerSelection) {
+  if (player1Score === 5 || compScore === 5) {
     return;
   }
   roundWinner.style.color = 'white';
+  let computerSelection = getComputerChoice();
+
   if (
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'paper' && computerSelection === 'rock') ||
@@ -52,9 +46,6 @@ function playRound(playerSelection, computerSelection) {
     roundWinner.style.color = 'green';
     player1Score++;
     playerScore.textContent = player1Score;
-    round++;
-    roundDisplay.textContent = round;
-    return 'Player Win';
   } else if (
     (computerSelection === 'rock' && playerSelection === 'scissors') ||
     (computerSelection === 'paper' && playerSelection === 'rock') ||
@@ -64,14 +55,7 @@ function playRound(playerSelection, computerSelection) {
     roundWinner.style.color = 'red';
     compScore++;
     computerScore.textContent = compScore;
-    round++;
-    roundDisplay.textContent = round;
-    return 'Computer Win';
   } else {
-    roundWinner.textContent = 'Draw';
-    round++;
-    roundDisplay.textContent = round;
+    roundWinner.textContent = 'Draw!!';
   }
 }
-
-// Tracking Scores & Round
