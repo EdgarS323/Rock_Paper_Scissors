@@ -4,10 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap"
+      rel="stylesheet" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <h1>Play In the Console.</h1>
+    <section class="container">
+      <header id="game-heading">
+        <h1>ROCK PAPER SCISSORS</h1>
+      </header>
+      <div class="options-container">
+        <img alt="rock" src="images/rock.png" />
+        <img alt="paper" src="images/paper.png" />
+        <img alt="scissors" src="images/scissors.webp" />
+      </div>
+      <div class="scores">
+        <span id="player-score">0</span>
+        <span id="round">1</span>
+        <span id="computer-score">0</span>
+      </div>
+      <div id="winner">
+        <h1>Player/computer ? Wins</h1>
+      </div>
+    </section>
+
     <script src="app.js"></script>
   </body>
 </html>

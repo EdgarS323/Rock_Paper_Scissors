@@ -6,6 +6,10 @@
 // let player2Score = 0;
 let options = ['rock', 'paper', 'scissors'];
 
+// Grab HTML Elements 
+
+
+
 // Get computers Choice from an array that includes rock, paper and scissors.
 
 const getComputerChoice = () => {
@@ -54,27 +58,27 @@ function playRound(playerSelection, computerSelection) {
 
 // Play 5 rounds
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 1; i <= 5; i++) {
-    let p1Choice = getPlayerChoice();
-    let computerSelection = getComputerChoice();
-    let result = playRound(p1Choice, computerSelection);
-    if (result === 'Player Win') {
-      playerScore++;
-    } else if (result === 'Computer Win') {
-      computerScore++;
-    }
-  }
-  if (playerScore > computerScore) {
-    console.log(
-      `Congrats you win with a score of ${playerScore} - ${computerScore}`
-    );
-  } else {
-    console.log(
-      `Sorry you lose with a score of ${playerScore} to ${computerScore}`
-    );
-  }
-}
-game();
+// function game() {
+//   let playerScore = 0;
+//   let computerScore = 0;
+//   for (let i = 1; i <= 5; i++) {
+//     let p1Choice = getPlayerChoice();
+//     let computerSelection = getComputerChoice();
+//     let result = playRound(p1Choice, computerSelection);
+//     if (result === 'Player Win') {
+//       playerScore++;
+//     } else if (result === 'Computer Win') {
+//       computerScore++;
+//     }
+//   }
+//   if (playerScore > computerScore) {
+//     console.log(
+//       `Congrats you win with a score of ${playerScore} - ${computerScore}`
+//     );
+//   } else {
+//     console.log(
+//       `Sorry you lose with a score of ${playerScore} to ${computerScore}`
+//     );
+//   }
+// }
+

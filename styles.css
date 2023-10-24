@@ -1,1 +1,30 @@
 /* Initizalize */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Goudy Bookletter 1911', serif;
+}
+body {
+  background-color: #14213d;
+  color: white;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: start;
+  row-gap: 100px;
+}
+
+#game-heading {
+  padding: 40px 0;
+  background-color: #fca311;
+  font-size: 40px;
+}
+
+img {
+  width: 150px;
+  margin: 0 80px;
+}
