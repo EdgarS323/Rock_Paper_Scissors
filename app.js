@@ -32,6 +32,11 @@ const getComputerChoice = () => {
 
 function playRound(playerSelection) {
   if (player1Score === 5 || compScore === 5) {
+    if (player1Score > compScore) {
+      gameWinner.textContent = 'CONGRATS YOU WIN THE SERIES!!!';
+    } else {
+      gameWinner.textContent = 'SORRY YOU LOST THE SERIES :(';
+    }
     return;
   }
   roundWinner.style.color = 'white';
